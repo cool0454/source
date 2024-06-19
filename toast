@@ -1,0 +1,72 @@
+.shareLinkArea input{
+    border: 1px solid #000000;
+    width: 210px;
+    height: 24px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    line-height: 24px;
+    padding-left: 15px;
+    background-color: #fffdee;
+}
+
+.shareLinkArea span{
+    display: inline-block;
+    height: 28px;
+    vertical-align: bottom;
+    margin-left: -4px;
+    cursor: pointer;
+    width: 60px;
+    background: #000;
+    color:#FFF400;
+    border-radius: 0 50px 50px 0;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.shareLinkArea span:active{
+    background: #000;
+    opacity: 0.5;
+    font-weight: 700;    
+}
+
+.toastPopup {
+    width: 223px;
+    height: 38px;
+    background: #4f95d0;
+    border-radius: 4px;
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    margin-left: -112px;
+}
+
+.toastPopup p{
+    font-size: 14px;
+    color:#fffdee;
+    line-height: 38px;
+    text-align: center;
+}
+
+.hide {
+	display : none;
+}
+
+
+<span class="shareLinkArea">
+	<input type="text" name="referralUrl" value="주소가들어갑니다" id="shareLink" readonly>
+	<span class="copyShareLink">링크복사</span>
+</span>
+<div class="toastPopup hide">
+   <p>링크가 복사되었습니다.</p>
+</div>
+
+
+
+$('.copyShareLink').on('click', function () {
+   var copyShareLink = $('#shareLink');
+   copyShareLink.select();
+   document.execCommand("Copy");
+   $('.toastPopup').fadeIn(400).delay(400).fadeOut(400);
+});
