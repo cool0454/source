@@ -109,3 +109,29 @@ button {
     align-items: center;
     height: 100%;
 }
+
+$(document).ready(function() {
+    let lastScrollTop = 0;
+
+    $(window).on('scroll', function() {
+        let scrollTop = $(this).scrollTop();
+
+        if (scrollTop < lastScrollTop) {
+            // Scrolling up
+            $('#bottomPopup').addClass('expanded');
+        } else {
+            // Scrolling down
+            $('#bottomPopup').removeClass('expanded');
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+    $('#showPopup').on('click', function() {
+        $('#bottomPopup').addClass('expanded');
+    });
+
+    $('#closePopup').on('click', function() {
+        $('#bottomPopup').removeClass('expanded');
+    });
+});
